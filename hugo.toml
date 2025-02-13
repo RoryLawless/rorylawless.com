@@ -1,0 +1,4 @@
+baseURL = 'https://RoryLawless.github.io/'
+languageCode = 'en-gb'
+title = 'Rory Lawless'
+theme = 'paper'
