@@ -1,4 +1,10 @@
-baseURL = 'https://RoryLawless.github.io/'
+baseURL = 'https://rorylawless.github.io/'
 languageCode = 'en-gb'
 title = 'Rory Lawless'
 theme = 'paper'
+[params]
+  color = 'linen'
+  github = 'RoryLawless'
+  linkedin = 'rory-lawless'
+  rss = true
+  monoDarkIcon = true
