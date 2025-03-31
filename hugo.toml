@@ -1,10 +1,13 @@
+ignoreFiles = ["\\.qmd$", "\\.ipynb$", "\\.py$", "\\.Rmd$", "\\.r", "\\.R"]
 baseURL = 'https://rorylawless.github.io/'
 languageCode = 'en-gb'
 title = 'Rory Lawless'
 theme = 'paper'
 [params]
-  color = 'linen'
-  github = 'RoryLawless'
-  linkedin = 'rory-lawless'
-  rss = true
-  monoDarkIcon = true
+color = 'linen'
+github = 'RoryLawless'
+linkedin = 'rory-lawless'
+rss = true
+monoDarkIcon = true
+[markup.goldmark.renderer]
+unsafe = true
