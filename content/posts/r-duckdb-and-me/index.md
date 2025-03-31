@@ -1,6 +1,7 @@
 ---
 title: R, DuckDB and Me
 date: 2025-03-30T00:00:00.000Z
+lastmod: 2025-03-31T00:00:00.000Z
 keywords:
   - R
   - rstats
@@ -62,15 +63,19 @@ con <- dbConnect(duckdb::duckdb())
 path_to_some_data_file <- "some-data-file.csv"
 
 data <- tbl_file(con, path_to_some_data_file) |>
+    as_duckdb_tibble() |>
     select(col_1, col_2, col_4, col_10) |>
-    filter(col_10 == "some_value") |>
-    collect()
+    filter(col_10 == "some_value")
 ```
 
-Aside from the `tbl_file()` and `collect()` functions, the rest of the code will be familiar to anyone who has used {dplyr} before. The main advantage of using {duckplyr} over writing SQL and using the [{DBI}](https://dbi.r-dbi.org) package is readability - using common {dplyr} functions makes it accessible to a wider range of users. This is a big benefit for teams where not everyone is comfortable reading or writing SQL.
+Aside from the `tbl_file()`, and `as_duckdb_tibble()` functions, the rest of the code will be familiar to anyone who has used {dplyr} before. The main advantage of using {duckplyr} over writing SQL and using the [{DBI}](https://dbi.r-dbi.org) package is readability - using common {dplyr} functions makes it accessible to a wider range of users. This is a big benefit for teams where not everyone is comfortable reading or writing SQL.
 
 Additionally, should the original author fall off the face of the earth, the code is still maintainable by others and readily adapted to eliminate the dependency on DuckDB.
 
 ## Final thoughts
 
 DuckDB and R are a great combination, allowing me to overcome some of my (self-inflicted?) frustrations in my day-to-day data work. With {duckplyr}, querying data directly from files has smoothed out some of the rough edges in my workflow.
+
+### Update
+
+The code and text was updated to add the `as_duckdb_tibble()` function that was errorneously missed in the original post.
