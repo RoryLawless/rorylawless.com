@@ -3,11 +3,16 @@ baseURL = 'https://rorylawless.github.io/'
 languageCode = 'en-gb'
 title = 'Rory Lawless'
 theme = 'paper'
+favicon = '👽'
 [params]
 color = 'linen'
+bluesky = 'rorylawless.com'
 github = 'RoryLawless'
 linkedin = 'rory-lawless'
 rss = true
 monoDarkIcon = true
 [markup.goldmark.renderer]
 unsafe = true
+[markup]
+[markup.highlight]
+style = 'dracula'
