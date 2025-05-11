@@ -1,5 +1,5 @@
 ignoreFiles = ["\\.qmd$", "\\.ipynb$", "\\.py$", "\\.Rmd$", "\\.r", "\\.R"]
-baseURL = 'https://rorylawless.github.io/'
+baseURL = 'https://rorylawless.com/'
 languageCode = 'en-gb'
 title = 'Rory Lawless'
 theme = 'paper'
