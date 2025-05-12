@@ -2,7 +2,9 @@ ignoreFiles = ["\\.qmd$", "\\.ipynb$", "\\.py$", "\\.Rmd$", "\\.r", "\\.R"]
 baseURL = 'https://rorylawless.com/'
 languageCode = 'en-gb'
 title = 'Rory Lawless'
-theme = 'paper'
+[module]
+[[module.imports]]
+path = "github.com/nanxiaobei/hugo-paper"
 [params]
 favicon = 'favicon.svg'
 appleTouchIcon = 'alien-touch-icon.png'
@@ -12,8 +14,14 @@ github = 'RoryLawless'
 linkedin = 'rory-lawless'
 rss = true
 monoDarkIcon = true
+[markup]
 [markup.goldmark.renderer]
 unsafe = true
-[markup]
 [markup.highlight]
 style = 'dracula'
+[caches]
+[caches.images]
+dir = ':cacheDir/images'
+[caches.modules]
+dir = ':cacheDir/modules'
+maxAge = -1
