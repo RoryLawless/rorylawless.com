@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "posts/r-duckdb-and-me/index.html",
+    "href": "posts/r-duckdb-and-me/index.html",
+    "title": "R, DuckDB and Me",
+    "section": "",
+    "text": "Over the past year, DuckDB has gradually become an important part of my data science workflow - at first clumsily, then seamlessly. I don’t typically work with large datasets, however, integrating DuckDB has addressed some of my frustrations, especially when dealing with hardware limitations and moderately-sized but inefficiently stored data. With this in mind, here are two major benefits I’ve found since integrating DuckDB into my workflow."
+  },
+  {
+    "objectID": "posts/r-duckdb-and-me/index.html#handling-larger-than-memory-data",
+    "href": "posts/r-duckdb-and-me/index.html#handling-larger-than-memory-data",
+    "title": "R, DuckDB and Me",
+    "section": "Handling larger-than-memory data",
+    "text": "Handling larger-than-memory data\nAs noted, I don’t work with very large data often but I still run into annoying issues caused by repeated reloading of data after making mistakes - a habit I call Read-Error-Reread (RERe? Let’s make it happen!). Now, this is not an issue for a .csv file containing a few hundred rows and, for larger files or those stored in legacy formats, I could add a “backup” step to my code, like so:\ndata &lt;- read.csv(\"some-data-file.csv\")\ndata_backup &lt;- data\n\n# Do some work on data\n\n# Ahh! I made a mistake, let's try again\n\ndata &lt;- data_backup\nThis works fine, but it is a bit of an anti-pattern and ought to, in my opinion, be avoided. Instead of adding this extra step - possibly increasing the memory used in the R session - you can use DuckDB to directly query files stored on disk, without having to load them into memory first.\nlibrary(tidyverse)\nlibrary(duckdb)\n\ncon &lt;- dbConnect(duckdb::duckdb())\n\ndata &lt;- dbGetQuery(\n    con,\n    \"SELECT col_1, col_2, col_4, col_10\n    FROM 'some-data-file.csv'\n    WHERE col_10 = 'some_value'\"\n)\nThis may seem more complicated at first, and does require some knowledge of SQL, but it is a very efficient way of working with larger datasets, especially in the early stages when you’re still exploring the data and working out what you’re going to do with it."
+  },
+  {
+    "objectID": "posts/r-duckdb-and-me/index.html#duckplyr",
+    "href": "posts/r-duckdb-and-me/index.html#duckplyr",
+    "title": "R, DuckDB and Me",
+    "section": "{duckplyr}",
+    "text": "{duckplyr}\nA game-changer for me, which really accelerated my adoption of DuckDB as a backend for processing data, was the {duckplyr} package. Those familiar with {dbplyr} will understand the theory behind this package; it allows queries to be built using the standard set of {dplyr} functions, which are then converted to SQL behind the scenes.\nlibrary(tidyverse)\nlibrary(duckdb)\nlibrary(duckplyr)\n\ncon &lt;- dbConnect(duckdb::duckdb())\n\npath_to_some_data_file &lt;- \"some-data-file.csv\"\n\ndata &lt;- tbl_file(con, path_to_some_data_file) |&gt;\n    as_duckdb_tibble() |&gt;\n    select(col_1, col_2, col_4, col_10) |&gt;\n    filter(col_10 == \"some_value\")\nAside from the tbl_file(), and as_duckdb_tibble() functions, the rest of the code will be familiar to anyone who has used {dplyr} before. The main advantage of using {duckplyr} over writing SQL and using the {DBI} package is readability - using common {dplyr} functions makes it accessible to a wider range of users. This is a big benefit for teams where not everyone is comfortable reading or writing SQL.\nAdditionally, should the original author fall off the face of the earth, the code is still maintainable by others and readily adapted to eliminate the dependency on DuckDB."
+  },
+  {
+    "objectID": "posts/r-duckdb-and-me/index.html#final-thoughts",
+    "href": "posts/r-duckdb-and-me/index.html#final-thoughts",
+    "title": "R, DuckDB and Me",
+    "section": "Final thoughts",
+    "text": "Final thoughts\nDuckDB and R are a great combination, allowing me to overcome some of my (self-inflicted?) frustrations in my day-to-day data work. With {duckplyr}, querying data directly from files has smoothed out some of the rough edges in my workflow.\n\nUpdate\nThe code and text was updated to add the as_duckdb_tibble() function that was errorneously missed in the original post."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "blog",
+    "section": "",
+    "text": "R, DuckDB and Me\n\n\n\n\n\n\n\n\nMar 30, 2025\n\n\n\n\n\nNo matching items"
+  }
+]
