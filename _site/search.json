@@ -28,17 +28,10 @@
     "text": "Final thoughts\nDuckDB and R are a great combination, allowing me to overcome some of my (self-inflicted?) frustrations in my day-to-day data work. With {duckplyr}, querying data directly from files has smoothed out some of the rough edges in my workflow.\n\nUpdate\nThe code and text was updated to add the as_duckdb_tibble() function that was errorneously missed in the original post."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this blog"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "blog",
+    "title": "Rory Lawless",
     "section": "",
-    "text": "R, DuckDB and Me\n\n\n\n\n\n\n\n\nMar 30, 2025\n\n\n\n\n\nNo matching items"
+    "text": "Date\n\n\n\nTitle\n\n\n\n\n\n\n\n\nMar 30, 2025\n\n\nR, DuckDB and Me\n\n\n\n\n\n\nNo matching items"
   }
 ]

@@ -3,33 +3,23 @@ project:
   output-dir: _site
   render:
     - "*.qmd"
-    - "!CLAUDE.md"
-
 website:
   title: "Rory Lawless"
   site-url: "https://rorylawless.com"
   favicon: favicon.svg
+  search: false
   navbar:
-    right:
-      - about.qmd
+    left:
       - icon: github
         href: https://github.com/RoryLawless
       - icon: linkedin
         href: https://www.linkedin.com/in/rory-lawless/
       - icon: bluesky
         href: https://bsky.app/profile/rorylawless.com
-      - icon: rss
-        href: index.xml
-
 format:
   html:
     theme:
-      - simplex
-      - brand
-    css: styles.css
+      - none
     highlight-style: dracula
     code-copy: true
-    toc: true
-
-
-
+    backgroundcolor: "#faf8f1"
