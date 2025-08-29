@@ -9,17 +9,18 @@ website:
   favicon: favicon.svg
   search: false
   navbar:
-    left:
+    tools:
+      - icon: bluesky
+        href: https://bsky.app/profile/rorylawless.com
       - icon: github
         href: https://github.com/RoryLawless
       - icon: linkedin
         href: https://www.linkedin.com/in/rory-lawless/
-      - icon: bluesky
-        href: https://bsky.app/profile/rorylawless.com
 format:
   html:
     theme:
       - none
+      - custom.scss
     highlight-style: dracula
     code-copy: true
     backgroundcolor: "#faf8f1"

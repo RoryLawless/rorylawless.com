@@ -3,11 +3,9 @@ listing:
   contents: posts
   sort: "date desc"
   type: table
-  fields: [date, title]
+  fields: [title, date]
   categories: false
   sort-ui: false
   filter-ui: false
   feed: true
 ---
-
-
