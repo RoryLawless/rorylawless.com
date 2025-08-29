@@ -7,7 +7,6 @@ name: Render Quarto Website
 
 permissions: 
     contents: write
-    pages: write
 
 jobs:
   quarto-render:
@@ -19,9 +18,6 @@ jobs:
         
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
-      
-      - name: Setup R dependencies
-        uses: r-lib/actions/setup-r-dependencies@v2
 
       - name: Render Quarto
         uses: quarto-dev/quarto-actions/render@v2
