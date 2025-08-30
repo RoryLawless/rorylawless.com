@@ -1,0 +1,33 @@
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+name: Render Quarto Website
+
+jobs:
+  quarto-render:
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    runs-on: ubuntu-latest
+    permissions: 
+      contents: write
+    
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render Quarto
+        uses: quarto-dev/quarto-actions/render@v2
+
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy _site --project-name=rorylawless
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
