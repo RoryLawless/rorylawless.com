@@ -1,16 +1,18 @@
 on:
+  workflow_dispatch:
   push:
     branches:
       - dev
 
 name: Render Quarto Website
 
-permissions: 
-    contents: write
-
 jobs:
   quarto-render:
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     runs-on: ubuntu-latest
+    permissions: 
+      contents: write
     
     steps:
       - name: Check out repository
@@ -21,3 +23,5 @@ jobs:
 
       - name: Render Quarto
         uses: quarto-dev/quarto-actions/render@v2
+        with:
+          to: html
