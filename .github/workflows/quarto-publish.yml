@@ -23,5 +23,11 @@ jobs:
 
       - name: Render Quarto
         uses: quarto-dev/quarto-actions/render@v2
+
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
         with:
-          to: html
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy _site --project-name=rorylawless
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
