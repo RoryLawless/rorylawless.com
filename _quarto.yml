@@ -6,15 +6,15 @@ project:
 website:
   title: "Rory Lawless"
   site-url: "https://rorylawless.com"
-  favicon: favicon.svg
+  favicon: assets/favicon.svg
   search: false
   navbar:
-    tools:
-      - icon: bluesky
+    right:
+      - text: "{{< fa brands bluesky size=lg title='Bluesky' color='#faf8f1'>}}"
         href: https://bsky.app/profile/rorylawless.com
-      - icon: github
+      - text: "{{< fa brands github size=lg title='GitHub' >}}"
         href: https://github.com/RoryLawless
-      - icon: linkedin
+      - text: "{{< fa brands linkedin-in size=lg title='LinkedIn' >}}"
         href: https://www.linkedin.com/in/rory-lawless/
 format:
   html:
@@ -24,3 +24,7 @@ format:
     highlight-style: dracula
     code-copy: true
     backgroundcolor: "#faf8f1"
+    mainfont: "Lato"
+    fontcolor: "#00202a"
+    fontsize: 16pt
+    linkcolor: "#005f73"
