@@ -1,21 +1,30 @@
 project:
   type: website
   output-dir: _site
-  render:
-    - "*.qmd"
 website:
   title: "Rory Lawless"
-  site-url: "https://rorylawless.com"
-  favicon: favicon.svg
+  site-url: https://rorylawless.com
+  description: "Rory Lawless' personal website"
+  repo-url: https://github.com/RoryLawless/rorylawless.com
+  page-footer:
+    background: "#faf8f1"
+    foreground: "#00202a"
+    center:
+      - text: "Made by 👽"
+  favicon: assets/favicon.svg
   search: false
   navbar:
-    tools:
-      - icon: bluesky
+    foreground: "#faf8f1"
+    right:
+      - text: "{{< fa brands bluesky size=lg title='Bluesky' color='#faf8f1'>}}"
         href: https://bsky.app/profile/rorylawless.com
-      - icon: github
+        aria-label: "Bluesky"
+      - text: "{{< fa brands github size=lg title='GitHub' >}}"
         href: https://github.com/RoryLawless
-      - icon: linkedin
+        aria-label: "GitHub"
+      - text: "{{< fa brands linkedin-in size=lg title='LinkedIn' >}}"
         href: https://www.linkedin.com/in/rory-lawless/
+        aria-label: "LinkedIn"
 format:
   html:
     theme:
@@ -24,3 +33,7 @@ format:
     highlight-style: dracula
     code-copy: true
     backgroundcolor: "#faf8f1"
+    mainfont: "Lato"
+    fontcolor: "#00202a"
+    fontsize: 16pt
+    linkcolor: "#005f73"
