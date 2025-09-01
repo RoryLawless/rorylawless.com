@@ -1,6 +1,11 @@
 on:
   workflow_dispatch:
   push:
+    paths:
+      - "!.claude/**"
+      - "!.github/**"
+      - "!CLAUDE.md"
+      - "!.gitignore"
     branches:
       - main
 
