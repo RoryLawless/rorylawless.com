@@ -15,9 +15,10 @@ quarto preview       # Start local development server with live reload
 ```
 
 ### Content Creation
-```bash
-quarto create blog posts/new-post-name    # Create a new blog post in posts/
-```
+To create a new blog post:
+1. Create a subdirectory within `posts/` (e.g., `posts/my-new-post/`)
+2. Add an `index.qmd` file to that directory
+3. The blog homepage will automatically update to include the newest post when rendered
 
 ### Deployment
 The site auto-deploys to Cloudflare Pages on pushes to main via `.github/workflows/quarto-publish.yml`. Manual deployment is also available via workflow_dispatch.
