@@ -3,6 +3,8 @@ project:
   output-dir: _site
   render: 
     - "*.qmd"
+  post-render:
+    - scripts/copy-security.sh
 website:
   title: "Rory Lawless"
   site-url: https://rorylawless.com
