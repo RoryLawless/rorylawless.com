@@ -33,7 +33,7 @@ format:
   html:
     theme:
       - none
-      - custom.scss
+      - assets/custom.scss
     highlight-style: dracula
     code-copy: true
     backgroundcolor: "#faf8f1"
