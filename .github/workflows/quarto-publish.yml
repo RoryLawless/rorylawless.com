@@ -1,13 +1,13 @@
 on:
   workflow_dispatch:
   push:
+    branches:
+      - main
     paths:
       - "!.claude/**"
       - "!.github/**"
       - "!CLAUDE.md"
       - "!.gitignore"
-    branches:
-      - main
 
 name: Render Quarto Website
 
