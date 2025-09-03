@@ -29,7 +29,9 @@ The site auto-deploys to Cloudflare Pages on pushes to main via `.github/workflo
 - `index.qmd` - Homepage with listing of blog posts using custom template
 - `posts/` - Blog posts, each in their own directory with `index.qmd`
 - `posts/_metadata.yml` - Global metadata for all posts (freeze: true for computational output)
-- `template.ejs` - Custom EJS template for blog post listings (creates clean table layout)
+- `assets/template.ejs` - Custom EJS template for blog post listings (creates clean table layout)
+- `assets/` - Static assets including styles, templates, and favicon
+- `.well-known/` - Security-related files (security.txt, pgp-key.txt)
 
 ### Configuration Files
 - `_quarto.yml` - Main Quarto project configuration
@@ -37,7 +39,9 @@ The site auto-deploys to Cloudflare Pages on pushes to main via `.github/workflo
   - Uses custom SCSS theme with Lato/Playfair Display fonts
   - Renders only `*.qmd` files (excludes .md files like CLAUDE.md from site build)
   - Deploys to `_site/` directory
-- `custom.scss` - Custom styles including navbar width constraints and typography
+  - Includes post-render script to copy security files
+- `assets/custom.scss` - Custom styles including navbar width constraints and typography
+- `scripts/copy-security.sh` - Post-render script that copies .well-known directory to _site/
 - `.gitignore` - Excludes Quarto build artifacts (`.quarto/`, `_site/`)
 
 ### Styling and Theme
