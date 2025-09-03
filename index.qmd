@@ -1,7 +1,7 @@
 ---
 listing:
   contents: posts
-  template: template.ejs
+  template: assets/template.ejs
   date-format: "full"
   sort: "date desc"
   categories: false
