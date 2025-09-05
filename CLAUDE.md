@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a personal website built with Quarto, a scientific and technical publishing system. The site is deployed to Cloudflare Pages via GitHub Actions and serves as a blog and personal portfolio for Rory Lawless.
+This is a personal website built with Quarto, a scientific and technical publishing system. The site is deployed to Cloudflare Workers via GitHub Actions and serves as a blog and personal portfolio for Rory Lawless.
 
 ## Key Commands
 
@@ -21,7 +21,7 @@ To create a new blog post:
 3. The blog homepage will automatically update to include the newest post when rendered
 
 ### Deployment
-The site auto-deploys to Cloudflare Pages on pushes to main via `.github/workflows/quarto-publish.yml`. Manual deployment is also available via workflow_dispatch.
+The site auto-deploys to Cloudflare Workers on pushes to main via `.github/workflows/quarto-publish.yml`. Manual deployment is also available via workflow_dispatch.
 
 ## Architecture
 
@@ -42,7 +42,8 @@ The site auto-deploys to Cloudflare Pages on pushes to main via `.github/workflo
   - Includes post-render script to copy security files
 - `assets/custom.scss` - Custom styles including navbar width constraints and typography
 - `scripts/copy-security.sh` - Post-render script that copies .well-known directory to _site/
-- `.gitignore` - Excludes Quarto build artifacts (`.quarto/`, `_site/`)
+- `wrangler.jsonc` - Cloudflare Workers configuration for static assets deployment
+- `.gitignore` - Excludes Quarto and Workers build artifacts (`.quarto/`, `_site/`, `.wrangler/`)
 
 ### Styling and Theme
 - Background: #faf8f1 (cream)
@@ -53,7 +54,7 @@ The site auto-deploys to Cloudflare Pages on pushes to main via `.github/workflo
 - Code highlighting: Dracula theme
 
 ### GitHub Actions Workflows
-1. `quarto-publish.yml` - Renders Quarto site and deploys to Cloudflare Pages
+1. `quarto-publish.yml` - Renders Quarto site and deploys to Cloudflare Workers
 2. `claude.yml` - Claude Code PR Assistant workflow 
 3. `claude-code-review.yml` - Claude Code Review workflow
 
