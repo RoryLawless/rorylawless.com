@@ -2,5 +2,18 @@
 /.quarto/
 _site/
 
+### Cloudflare Workers ###
+.wrangler/
+wrangler.toml
+.dev.vars
+worker-configuration.d.ts
+node_modules/
+*.log
+
+### Development ###
+.env
+.env.local
+.env.*.local
+
 ### macOS ###
 .DS_Store
