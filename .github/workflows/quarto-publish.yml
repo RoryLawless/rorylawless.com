@@ -3,11 +3,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "!.claude/**"
-      - "!.github/**"
-      - "!CLAUDE.md"
-      - "!.gitignore"
 
 name: Render Quarto Website
 
