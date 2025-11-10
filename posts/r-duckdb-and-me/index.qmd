@@ -18,7 +18,9 @@ Over the past year, [DuckDB](https://duckdb.org/docs/stable/clients/r) has gradu
 
 As noted, I don't work with very large data often but I still run into annoying issues caused by repeated reloading of data after making mistakes - a habit I call Read-Error-Reread (RERe? Let’s make it happen!). Now, this is not an issue for a .csv file containing a few hundred rows and, for larger files or those stored in legacy formats, I could add a "backup" step to my code, like so:
 
-```r
+```{r}
+#| eval: false
+
 data <- read.csv("some-data-file.csv")
 data_backup <- data
 
@@ -32,7 +34,9 @@ data <- data_backup
 
 This works fine, but it is a bit of an anti-pattern and ought to, in my opinion, be avoided. Instead of adding this extra step - possibly increasing the memory used in the R session - you can use DuckDB to directly query files stored on disk, without having to load them into memory first.
 
-```r
+```{r}
+#| eval: false
+
 library(tidyverse)
 library(duckdb)
 
@@ -53,7 +57,9 @@ This may seem more complicated at first, and does require some knowledge of SQL,
 A game-changer for me, which really accelerated my adoption of DuckDB as a backend for processing data, was the [{duckplyr}](https://duckplyr.tidyverse.org) package. Those familiar with [{dbplyr}](https://dbplyr.tidyverse.org) will understand the theory behind this package; it allows queries to be built using the standard set of [{dplyr}](https://dplyr.tidyverse.org) functions, which are then converted to SQL behind the scenes. 
 
 
-```r
+```{r}
+#| eval: false
+
 library(tidyverse)
 library(duckdb)
 library(duckplyr)

@@ -14,7 +14,7 @@ website:
     background: "#faf8f1"
     foreground: "#00202a"
     center:
-      - text: "Made by 👽"
+      - text: "Made by 👽 in the District of Columbia"
   favicon: assets/favicon.svg
   search: false
   navbar:
@@ -34,7 +34,7 @@ format:
     theme:
       - none
       - assets/custom.scss
-    highlight-style: dracula
+    highlight-style: a11y
     code-copy: true
     backgroundcolor: "#faf8f1"
     mainfont: "Lato"
