@@ -10,7 +10,7 @@
 <atom:link href="https://rorylawless.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>Rory Lawless&#39; personal website</description>
 <generator>quarto-1.8.26</generator>
-<lastBuildDate>Sun, 30 Mar 2025 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 30 Mar 2025 04:00:00 GMT</lastBuildDate>
 <item>
   <title>R, DuckDB and Me</title>
   <dc:creator>Rory Lawless</dc:creator>
@@ -157,7 +157,7 @@ font-style: inherit;">"some_value"</span>)</span></code></pre></div></div>
 
  ]]></description>
   <guid>https://rorylawless.com/posts/r-duckdb-and-me/</guid>
-  <pubDate>Sun, 30 Mar 2025 00:00:00 GMT</pubDate>
+  <pubDate>Sun, 30 Mar 2025 04:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
