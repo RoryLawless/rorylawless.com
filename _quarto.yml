@@ -3,30 +3,29 @@ project:
   output-dir: _site
   render: 
     - "*.qmd"
-  post-render:
-    - scripts/copy-security.sh
 website:
   title: "Rory Lawless"
   site-url: https://rorylawless.com
   description: "Rory Lawless' personal website"
   repo-url: https://github.com/RoryLawless/rorylawless.com
   page-footer:
-    background: "#faf8f1"
-    foreground: "#00202a"
+    background: "#fbf5f5"
+    foreground: "#070a0c"
     center:
-      - text: "Made by 👽"
+      - text: "Made by 👽 in the District of Columbia"
   favicon: assets/favicon.svg
   search: false
   navbar:
-    foreground: "#faf8f1"
+    background: "#24617a"
+    foreground: "#fbf5f5"
     right:
-      - text: "{{< fa brands bluesky size=lg title='Bluesky' color='#faf8f1'>}}"
+      - text: "{{< fa brands square-bluesky size=lg title='Bluesky' color='#fbf5f5'>}}"
         href: https://bsky.app/profile/rorylawless.com
         aria-label: "Bluesky"
-      - text: "{{< fa brands github size=lg title='GitHub' >}}"
+      - text: "{{< fa brands git-alt size=lg title='GitHub' color='#fbf5f5'>}}"
         href: https://github.com/RoryLawless
         aria-label: "GitHub"
-      - text: "{{< fa brands linkedin-in size=lg title='LinkedIn' >}}"
+      - text: "{{< fa brands linkedin size=lg title='LinkedIn' color='#fbf5f5'>}}"
         href: https://www.linkedin.com/in/rory-lawless/
         aria-label: "LinkedIn"
 format:
@@ -34,10 +33,10 @@ format:
     theme:
       - none
       - assets/custom.scss
-    highlight-style: dracula
+    highlight-style: a11y
     code-copy: true
-    backgroundcolor: "#faf8f1"
+    backgroundcolor: "#fbf5f5"
     mainfont: "Lato"
-    fontcolor: "#00202a"
+    fontcolor: "#070a0c"
     fontsize: 16pt
-    linkcolor: "#005f73"
+    linkcolor: "#183e4d"
