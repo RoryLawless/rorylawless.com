@@ -71,12 +71,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-fc8d3d93f0a84b7619e1f8ff6eb63d42.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-d640c705e8c17715bca3574aa719063f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-c479be9675f0f4408732e9614de6e52a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-484f02a8cdcfe9a7bce03a9221bbc6b2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -114,15 +114,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="https://bsky.app/profile/rorylawless.com"> 
-<span class="menu-text"><i class="fa-brands fa-bluesky fa-lg" title="Bluesky" aria-label="bluesky"></i></span></a>
+<span class="menu-text"><i class="fa-brands fa-square-bluesky fa-lg" title="Bluesky" aria-label="square-bluesky"></i></span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://github.com/RoryLawless"> 
-<span class="menu-text"><i class="fa-brands fa-github fa-lg" title="GitHub" aria-label="github"></i></span></a>
+<span class="menu-text"><i class="fa-brands fa-git-alt fa-lg" title="GitHub" aria-label="git-alt"></i></span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://www.linkedin.com/in/rory-lawless/"> 
-<span class="menu-text"><i class="fa-brands fa-linkedin-in fa-lg" title="LinkedIn" aria-label="linkedin-in"></i></span></a>
+<span class="menu-text"><i class="fa-brands fa-linkedin fa-lg" title="LinkedIn" aria-label="linkedin"></i></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -142,14 +142,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">R, DuckDB and Me</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">R</div>
-    <div class="quarto-category">rstats</div>
-    <div class="quarto-category">DuckDB</div>
-    <div class="quarto-category">Data</div>
-    <div class="quarto-category">Workflow</div>
-  </div>
-  </div>
+</div>
 
 
 
@@ -181,7 +174,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="handling-larger-than-memory-data" class="level2">
 <h2 class="anchored" data-anchor-id="handling-larger-than-memory-data">Handling larger-than-memory data</h2>
 <p>As noted, I don’t work with very large data often but I still run into annoying issues caused by repeated reloading of data after making mistakes - a habit I call Read-Error-Reread (RERe? Let’s make it happen!). Now, this is not an issue for a .csv file containing a few hundred rows and, for larger files or those stored in legacy formats, I could add a “backup” step to my code, like so:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"some-data-file.csv"</span>)</span>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"some-data-file.csv"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data_backup <span class="ot">&lt;-</span> data</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Do some work on data</span></span>
@@ -189,8 +183,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Ahh! I made a mistake, let's try again</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data_backup</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <p>This works fine, but it is a bit of an anti-pattern and ought to, in my opinion, be avoided. Instead of adding this extra step - possibly increasing the memory used in the R session - you can use DuckDB to directly query files stored on disk, without having to load them into memory first.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(duckdb)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(duckdb<span class="sc">::</span><span class="fu">duckdb</span>())</span>
@@ -201,12 +197,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM 'some-data-file.csv'</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="st">    WHERE col_10 = 'some_value'"</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <p>This may seem more complicated at first, and does require some knowledge of SQL, but it is a very efficient way of working with larger datasets, especially in the early stages when you’re still exploring the data and working out what you’re going to do with it.</p>
 </section>
 <section id="duckplyr" class="level2">
 <h2 class="anchored" data-anchor-id="duckplyr">{duckplyr}</h2>
 <p>A game-changer for me, which really accelerated my adoption of DuckDB as a backend for processing data, was the <a href="https://duckplyr.tidyverse.org">{duckplyr}</a> package. Those familiar with <a href="https://dbplyr.tidyverse.org">{dbplyr}</a> will understand the theory behind this package; it allows queries to be built using the standard set of <a href="https://dplyr.tidyverse.org">{dplyr}</a> functions, which are then converted to SQL behind the scenes.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(duckdb)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(duckplyr)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -218,6 +216,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as_duckdb_tibble</span>() <span class="sc">|&gt;</span></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(col_1, col_2, col_4, col_10) <span class="sc">|&gt;</span></span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(col_10 <span class="sc">==</span> <span class="st">"some_value"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <p>Aside from the <code>tbl_file()</code>, and <code>as_duckdb_tibble()</code> functions, the rest of the code will be familiar to anyone who has used {dplyr} before. The main advantage of using {duckplyr} over writing SQL and using the <a href="https://dbi.r-dbi.org">{DBI}</a> package is readability - using common {dplyr} functions makes it accessible to a wider range of users. This is a big benefit for teams where not everyone is comfortable reading or writing SQL.</p>
 <p>Additionally, should the original author fall off the face of the earth, the code is still maintainable by others and readily adapted to eliminate the dependency on DuckDB.</p>
 </section>
@@ -642,7 +641,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
- Made by 👽
+ Made by 👽 in the District of Columbia
   </li>  
 </ul>
     </div>
