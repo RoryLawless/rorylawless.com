@@ -4,12 +4,10 @@ on:
     branches:
       - main
 
-name: Render Quarto Website
+name: Render & Publish Quarto Website
 
 jobs:
   quarto-render:
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
