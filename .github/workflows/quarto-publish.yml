@@ -4,28 +4,26 @@ on:
     branches:
       - main
 
-name: Render Quarto Website
+name: Render & Publish Quarto Website
 
 jobs:
   quarto-render:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     runs-on: ubuntu-latest
-    permissions: 
+    permissions:
       contents: write
-    
+
     steps:
       - name: Check out repository
-        uses: actions/checkout@v6
-        
+        uses: actions/checkout@v5
+
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Render Quarto
-        uses: quarto-dev/quarto-actions/render@v2
-
-      - name: Deploy to Cloudflare Workers
-        uses: cloudflare/wrangler-action@v3
+      - name: Render and Publish
+        uses: quarto-dev/quarto-actions/publish@v2
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          wranglerVersion: "4.34.0"
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
