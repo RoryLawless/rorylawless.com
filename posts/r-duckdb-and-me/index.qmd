@@ -3,12 +3,6 @@ title: "R, DuckDB and Me"
 author: Rory Lawless
 date: 2025-03-30
 lastmod: 2025-03-31
-categories:
-  - R
-  - rstats
-  - DuckDB
-  - Data
-  - Workflow
 format: html
 ---
 
