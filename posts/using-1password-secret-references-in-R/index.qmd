@@ -22,12 +22,14 @@ ANTHROPIC_API_KEY="op://Private/ClaudeAPI/credential"
 
 Our key is stored inside our 1Password vault, safe from prying eyes and accidental exposure. To access this environment variable in a script, we would typically write something like ``r Sys.getenv("ANTHROPIC_API_KEY")``, while this will technically run you will receive an error as you will be attempting to pass the literal secret reference to your API call. We will need to alter this code in two ways, the first is to use one of [the methods 1Password CLI provides](https://developer.1password.com/docs/cli/secrets-scripts) for loading secrets into code, the one we will use in our R script is `op read`. 
 
+The second change, calling the function `system2()` from base, which lets us run  `op run` (or any system command) from our R script. 
+
 ```{r system2-example}
 #| eval: false
 
 system2(
 	"op",
-	args = c("read", shQuote(Sys.getenv("YOUR_API_KEY"))),
+	args = c("read", shQuote(Sys.getenv("ANTHROPIC_API_KEY"))),
 	stdout = TRUE
 )
 
